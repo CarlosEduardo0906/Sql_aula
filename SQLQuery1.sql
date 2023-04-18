@@ -69,6 +69,30 @@ FROM   cliente
 ON
 	   cliente.Cd_Cliente=pedido.Cd_Cliente
 
+------------------EXERCICIO UTILIZANDO PRODUTO CARTESIANO
+
+SELECT pedido.Nr_Pedido,
+	   pedido.Dt_Pedido,
+	   cliente.Nm_Cliente,
+	   pedidoProduto.Cd_Produto,
+	   pedidoProduto.Quantidade,
+	   pedidoProduto.Preco
+FROM pedido, cliente, pedidoProduto
+
+WHERE cliente.Cd_Cliente=pedido.Cd_Cliente AND pedido.Nr_Pedido=pedidoProduto.Nr_Pedido
+
+------------------EXERCICIO UTILIZANDO INNER JOIN
+
+SELECT pedido.Nr_Pedido,
+	   pedido.Dt_Pedido,
+	   cliente.Nm_Cliente,
+	   pedidoProduto.Cd_Produto,
+	   pedidoProduto.Quantidade,
+	   pedidoProduto.Preco
+FROM pedido 
+JOIN cliente ON pedido.Cd_Cliente=cliente.Cd_Cliente
+
+JOIN pedidoProduto ON pedido.Nr_Pedido=pedidoProduto.Nr_Pedido
 
 select * from cliente 
 select * from pedido

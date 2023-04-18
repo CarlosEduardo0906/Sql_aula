@@ -56,6 +56,20 @@ FROM
 WHERE
 	   cliente.Cd_Cliente=pedido.Cd_Cliente
 
+------------------Versão INNER JOIN
+
+SELECT cliente.Cd_Cliente,
+	   cliente.Nm_Cliente,
+	   pedido.Nr_Pedido,
+	   pedido.Dt_Pedido
+FROM   cliente
+
+	   INNER JOIN pedido
+	  
+ON
+	   cliente.Cd_Cliente=pedido.Cd_Cliente
+
+
 select * from cliente 
 select * from pedido
 select * from produto 
